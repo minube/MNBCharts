@@ -28,7 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.roundedChart.filledColor = [UIColor yellowColor];
+    self.roundedChart.filledColor = [UIColor colorWithRed:24.0/255.0 green:30.0/255.0 blue:38.0/255.0 alpha:1.0];
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,7 +39,7 @@
 
 - (IBAction)startAnimation:(id)sender
 {
-    [self.roundedChart startPresentingCircleWithColor:[UIColor blueColor] endValue:0.8 animationWithDuration:2.0 completion:^(BOOL finished) {
+    [self.roundedChart startPresentingCircleWithColor:[UIColor colorWithRed:49.0/255.0 green:57.0/255.0 blue:70.0/255.0 alpha:1.0] endValue:0.8 animationWithDuration:2.0 completion:^(BOOL finished) {
         NSLog(@"Animation did end");
     }];
 }

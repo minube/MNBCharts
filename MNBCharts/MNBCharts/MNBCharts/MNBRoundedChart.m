@@ -58,7 +58,7 @@ static NSString * const MNBRoundedChartAnimationKey = @"drawCircleAnimation";
     self.filledCircle = [CAShapeLayer layer];
     self.filledCircle.path = [UIBezierPath bezierPathWithArcCenter:self.circlesCenter radius:filledCircleRadius startAngle:0 endAngle:2 * M_PI clockwise:YES].CGPath;
     self.filledCircle.fillColor = self.filledColor.CGColor;
-    self.filledCircle.strokeColor = [UIColor clearColor].CGColor;
+    self.filledCircle.strokeColor = self.filledColor.CGColor;
     [self.layer addSublayer:self.filledCircle];
 }
 
