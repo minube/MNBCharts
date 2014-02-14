@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MNBViewController">
             <connections>
+                <outlet property="barChart" destination="hNY-uc-ZPQ" id="vqo-nU-OIB"/>
                 <outlet property="roundedChart" destination="H9t-rO-USx" id="y8w-RW-mEn"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
@@ -34,13 +35,24 @@
                         <action selector="startAnimation:" destination="-1" eventType="touchUpInside" id="ZAd-Sh-gNS"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hNY-uc-ZPQ" customClass="MNBBarChart">
+                    <rect key="frame" x="184" y="772" width="400" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="1bb-Tc-Kzs"/>
+                        <constraint firstAttribute="width" constant="400" id="4NA-mI-9Z2"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="ynq-Tk-YxC" secondAttribute="centerX" id="MKM-13-6o1"/>
                 <constraint firstAttribute="centerY" secondItem="H9t-rO-USx" secondAttribute="centerY" id="S07-xQ-XI2"/>
+                <constraint firstAttribute="centerX" secondItem="hNY-uc-ZPQ" secondAttribute="centerX" id="fMC-C5-DIO"/>
                 <constraint firstAttribute="centerX" secondItem="H9t-rO-USx" secondAttribute="centerX" id="m6n-A5-muV"/>
                 <constraint firstItem="H9t-rO-USx" firstAttribute="top" secondItem="ynq-Tk-YxC" secondAttribute="bottom" constant="40" id="oES-ec-Rlt"/>
+                <constraint firstItem="hNY-uc-ZPQ" firstAttribute="top" secondItem="H9t-rO-USx" secondAttribute="bottom" constant="20" id="xCD-P6-87Y"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
         </view>

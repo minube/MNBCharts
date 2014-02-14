@@ -8,9 +8,11 @@
 
 #import "MNBViewController.h"
 #import "MNBRoundedChart.h"
+#import "MNBBarChart.h"
 
 @interface MNBViewController ()
 @property (strong, nonatomic) IBOutlet MNBRoundedChart *roundedChart;
+@property (strong, nonatomic) IBOutlet MNBBarChart *barChart;
 - (IBAction)startAnimation:(id)sender;
 @end
 
@@ -29,6 +31,7 @@
 {
     [super viewDidLoad];
     self.roundedChart.filledColor = [UIColor colorWithRed:24.0/255.0 green:30.0/255.0 blue:38.0/255.0 alpha:1.0];
+    self.barChart.backgroundColor = [UIColor colorWithRed:49.0/255.0 green:57.0/255.0 blue:70.0/255.0 alpha:1.0];
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,6 +43,10 @@
 - (IBAction)startAnimation:(id)sender
 {
     [self.roundedChart startPresentingCircleWithColor:[UIColor colorWithRed:49.0/255.0 green:57.0/255.0 blue:70.0/255.0 alpha:1.0] endValue:0.8 animationWithDuration:2.0 completion:^(BOOL finished) {
+        NSLog(@"Animation did end");
+    }];
+    
+    [self.barChart startPresentingWithColor:[UIColor colorWithRed:244.0/255.0 green:129.0/255.0 blue:0.0 alpha:1.0] endValue:0.8 animationWithDuration:2.0 completion:^(BOOL finished) {
         NSLog(@"Animation did end");
     }];
 }

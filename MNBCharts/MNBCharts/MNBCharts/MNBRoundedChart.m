@@ -71,6 +71,8 @@ static NSString * const MNBRoundedChartAnimationKey = @"drawCircleAnimation";
 - (void)startPresentingCircleWithColor:(UIColor *)color endValue:(CGFloat)endValue animationWithDuration:(CGFloat)duration completion:(MNBRoundedChartCompletionCallback)completion
 {
     NSAssert1(endValue >= 0 && endValue <= 1, @"End Value must be between 0 and 1. You set endValue = %f", endValue);
+    self.completion = completion;
+    
     if (self.circle) {
         [self.circle removeFromSuperlayer];
     }
@@ -88,7 +90,6 @@ static NSString * const MNBRoundedChartAnimationKey = @"drawCircleAnimation";
         circleColor = color;
     }
     
-    self.completion = completion;
     self.circle.strokeColor = circleColor.CGColor;
 
     CABasicAnimation *drawAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];

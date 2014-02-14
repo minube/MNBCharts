@@ -22,6 +22,7 @@
 		45C272F818AE03F20011BE89 /* MNBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C272F618AE03F20011BE89 /* MNBViewController.m */; };
 		45C272F918AE03F20011BE89 /* MNBViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45C272F718AE03F20011BE89 /* MNBViewController.xib */; };
 		45C272FD18AE05680011BE89 /* MNBRoundedChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C272FC18AE05680011BE89 /* MNBRoundedChart.m */; };
+		45C2730018AE38A90011BE89 /* MNBBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C272FF18AE38A90011BE89 /* MNBBarChart.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		45C272F718AE03F20011BE89 /* MNBViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MNBViewController.xib; sourceTree = "<group>"; };
 		45C272FB18AE05680011BE89 /* MNBRoundedChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNBRoundedChart.h; sourceTree = "<group>"; };
 		45C272FC18AE05680011BE89 /* MNBRoundedChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNBRoundedChart.m; sourceTree = "<group>"; };
+		45C272FE18AE38A90011BE89 /* MNBBarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNBBarChart.h; sourceTree = "<group>"; };
+		45C272FF18AE38A90011BE89 /* MNBBarChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNBBarChart.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +172,8 @@
 			children = (
 				45C272FB18AE05680011BE89 /* MNBRoundedChart.h */,
 				45C272FC18AE05680011BE89 /* MNBRoundedChart.m */,
+				45C272FE18AE38A90011BE89 /* MNBBarChart.h */,
+				45C272FF18AE38A90011BE89 /* MNBBarChart.m */,
 			);
 			path = MNBCharts;
 			sourceTree = "<group>";
@@ -274,6 +279,7 @@
 				45C272FD18AE05680011BE89 /* MNBRoundedChart.m in Sources */,
 				45C272F818AE03F20011BE89 /* MNBViewController.m in Sources */,
 				45C272F118AE030B0011BE89 /* MNBAppDelegate.m in Sources */,
+				45C2730018AE38A90011BE89 /* MNBBarChart.m in Sources */,
 				45C272C118AE028A0011BE89 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
