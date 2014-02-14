@@ -28,7 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.roundedChart.filledColor = [UIColor yellowColor];
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,7 +39,7 @@
 
 - (IBAction)startAnimation:(id)sender
 {
-    [self.roundedChart startPresentingCircleWithColor:[UIColor blueColor] animationWithDuration:2.0 completion:^(BOOL finished) {
+    [self.roundedChart startPresentingCircleWithColor:[UIColor blueColor] endValue:0.8 animationWithDuration:2.0 completion:^(BOOL finished) {
         NSLog(@"Animation did end");
     }];
 }

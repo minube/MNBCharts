@@ -11,21 +11,35 @@
 static NSString * const MNBRoundedChartAnimationKey = @"drawCircleAnimation";
 
 @interface MNBRoundedChart ()
-@property (nonatomic, assign) CAShapeLayer *circle;
+@property (nonatomic, assign) CGPoint circlesCenter;
+@property (nonatomic, strong) CAShapeLayer *circle;
+@property (nonatomic, strong) CAShapeLayer *filledCircle;
+@property (nonatomic, assign) CGFloat circleRadius;
 @property (nonatomic, copy) MNBRoundedChartCompletionCallback completion;
+@property (nonatomic, assign) CGFloat lineWidth;
 @end
 
 @implementation MNBRoundedChart
 
-- (id)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    return [self initWithFrame:frame lineWidth:[MNBRoundedChart defaultLineWidthForFrame:frame]];
+}
+
+- (instancetype)initWithFrame:(CGRect)frame lineWidth:(CGFloat)lineWidth
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        _lineWidth = lineWidth;
     }
     return self;
 }
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    self.lineWidth = [MNBRoundedChart defaultLineWidthForFrame:self.frame];
+}
 
 - (void)drawRect:(CGRect)rect
 {
@@ -36,42 +50,44 @@ static NSString * const MNBRoundedChartAnimationKey = @"drawCircleAnimation";
     CGFloat smallestSide = rectWidth < rectHeight ? rectWidth : rectHeight;
     
     CGFloat radius = floorf(smallestSide / 2.0);
-    CGPoint center = CGPointMake(rectWidth / 4.0,
-                                 rectHeight / 4.0);
-    CGFloat lineWidth = 40;
-    CGFloat circleRadius = radius - floorf(lineWidth / 2.0);
-    CGFloat filledCircleRadius = circleRadius - floorf(lineWidth / 2.0);
+    self.circlesCenter = CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect));
+    self.circleRadius = radius - floorf(self.lineWidth / 2.0);
+    CGFloat filledCircleRadius = self.circleRadius - floorf(self.lineWidth / 2.0);
     
     // Filled Circle
-    CAShapeLayer *filledCircle = [CAShapeLayer layer];
-    filledCircle.path = [UIBezierPath bezierPathWithArcCenter:center radius:filledCircleRadius startAngle:0 endAngle:2 * M_PI clockwise:YES].CGPath;
-    filledCircle.position = center;
-    filledCircle.fillColor = [UIColor whiteColor].CGColor;
-    filledCircle.strokeColor = [UIColor clearColor].CGColor;
-    [self.layer addSublayer:filledCircle];
+    self.filledCircle = [CAShapeLayer layer];
+    self.filledCircle.path = [UIBezierPath bezierPathWithArcCenter:self.circlesCenter radius:filledCircleRadius startAngle:0 endAngle:2 * M_PI clockwise:YES].CGPath;
+    self.filledCircle.fillColor = self.filledColor.CGColor;
+    self.filledCircle.strokeColor = [UIColor clearColor].CGColor;
+    [self.layer addSublayer:self.filledCircle];
+}
+
+
+- (void)startPresentingCircleWithColor:(UIColor *)color endValue:(CGFloat)endValue animationWithDuration:(CGFloat)duration
+{
+    [self startPresentingCircleWithColor:color endValue:endValue animationWithDuration:duration completion:nil];
+}
+
+- (void)startPresentingCircleWithColor:(UIColor *)color endValue:(CGFloat)endValue animationWithDuration:(CGFloat)duration completion:(MNBRoundedChartCompletionCallback)completion
+{
+    NSAssert1(endValue >= 0 && endValue <= 1, @"End Value must be between 0 and 1. You set endValue = %f", endValue);
+    if (self.circle) {
+        [self.circle removeFromSuperlayer];
+    }
     
     // Circle
     self.circle = [CAShapeLayer layer];
-    self.circle.path = [UIBezierPath bezierPathWithArcCenter:center radius:circleRadius startAngle:3 * M_PI_2 endAngle:M_PI clockwise:YES].CGPath;
-    self.circle.position = center;
+    self.circle.path = [UIBezierPath bezierPathWithArcCenter:self.circlesCenter radius:self.circleRadius startAngle:3 * M_PI_2 endAngle:endValue * 4 * M_PI clockwise:YES].CGPath;
     self.circle.fillColor = [UIColor clearColor].CGColor;
     self.circle.strokeColor = [UIColor clearColor].CGColor;
-    self.circle.lineWidth = lineWidth;
+    self.circle.lineWidth = self.lineWidth;
     [self.layer addSublayer:self.circle];
-}
-
-
-- (void)startPresentingCircleWithColor:(UIColor *)color animationWithDuration:(CGFloat)duration
-{
-    [self startPresentingCircleWithColor:color animationWithDuration:duration completion:nil];
-}
-
-- (void)startPresentingCircleWithColor:(UIColor *)color animationWithDuration:(CGFloat)duration completion:(MNBRoundedChartCompletionCallback)completion
-{
+    
     UIColor *circleColor = [UIColor whiteColor];
     if (color) {
         circleColor = color;
     }
+    
     self.completion = completion;
     self.circle.strokeColor = circleColor.CGColor;
 
@@ -95,6 +111,27 @@ static NSString * const MNBRoundedChartAnimationKey = @"drawCircleAnimation";
         if (self.completion) {
             self.completion(flag);
             self.completion = nil;
+        }
+    }
+}
+
+#pragma mark - Default
++ (CGFloat)defaultLineWidthForFrame:(CGRect)rect
+{
+    CGFloat rectWidth = CGRectGetWidth(rect);
+    CGFloat rectHeight = CGRectGetHeight(rect);
+    
+    CGFloat smallestSide = rectWidth < rectHeight ? rectWidth : rectHeight;
+    return smallestSide * 0.1;
+}
+
+#pragma mark - Setters
+- (void)setFilledColor:(UIColor *)filledColor
+{
+    if (_filledColor != filledColor) {
+        _filledColor = filledColor;
+        if (self.filledCircle) {
+            self.filledCircle.fillColor = _filledColor.CGColor;
         }
     }
 }

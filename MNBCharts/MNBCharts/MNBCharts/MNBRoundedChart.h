@@ -11,6 +11,9 @@
 typedef void (^MNBRoundedChartCompletionCallback)(BOOL finished);
 
 @interface MNBRoundedChart : UIView
-- (void)startPresentingCircleWithColor:(UIColor *)color animationWithDuration:(CGFloat)duration;
-- (void)startPresentingCircleWithColor:(UIColor *)color animationWithDuration:(CGFloat)duration completion:(MNBRoundedChartCompletionCallback)completion;
+@property (nonatomic, strong) UIColor *filledColor;
+
+- (instancetype)initWithFrame:(CGRect)frame lineWidth:(CGFloat)lineWidth;
+- (void)startPresentingCircleWithColor:(UIColor *)color endValue:(CGFloat)endValue animationWithDuration:(CGFloat)duration;
+- (void)startPresentingCircleWithColor:(UIColor *)color endValue:(CGFloat)endValue animationWithDuration:(CGFloat)duration completion:(MNBRoundedChartCompletionCallback)completion;
 @end
