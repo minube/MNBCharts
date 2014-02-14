@@ -7,6 +7,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MNBViewController">
             <connections>
                 <outlet property="barChart" destination="hNY-uc-ZPQ" id="vqo-nU-OIB"/>
+                <outlet property="barChart2" destination="lz1-Rx-HJn" id="Vit-wV-0K7"/>
+                <outlet property="barChart3" destination="UJi-bw-lPF" id="ij0-S5-xN9"/>
                 <outlet property="roundedChart" destination="H9t-rO-USx" id="y8w-RW-mEn"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
@@ -17,16 +19,16 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H9t-rO-USx" customClass="MNBRoundedChart">
-                    <rect key="frame" x="34" y="252" width="700" height="500"/>
+                    <rect key="frame" x="234" y="150" width="300" height="300"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="700" id="Oc1-7x-kNG"/>
-                        <constraint firstAttribute="height" constant="500" id="RGM-Qp-gtI"/>
+                        <constraint firstAttribute="width" constant="300" id="Oc1-7x-kNG"/>
+                        <constraint firstAttribute="height" constant="300" id="RGM-Qp-gtI"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ynq-Tk-YxC">
-                    <rect key="frame" x="368" y="182" width="33" height="30"/>
+                    <rect key="frame" x="368" y="80" width="33" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Start">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -36,7 +38,7 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hNY-uc-ZPQ" customClass="MNBBarChart">
-                    <rect key="frame" x="184" y="772" width="400" height="40"/>
+                    <rect key="frame" x="184" y="470" width="400" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -44,12 +46,34 @@
                         <constraint firstAttribute="width" constant="400" id="4NA-mI-9Z2"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lz1-Rx-HJn" customClass="MNBBarChart">
+                    <rect key="frame" x="184" y="520" width="400" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="4Q7-wA-ILf"/>
+                        <constraint firstAttribute="width" constant="400" id="rmQ-MF-Dtr"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UJi-bw-lPF" customClass="MNBBarChart">
+                    <rect key="frame" x="184" y="570" width="400" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="400" id="4qJ-gC-45n"/>
+                        <constraint firstAttribute="height" constant="40" id="Gla-oS-1JQ"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="ynq-Tk-YxC" firstAttribute="top" secondItem="2" secondAttribute="top" constant="80" id="Jxz-fm-bx5"/>
                 <constraint firstAttribute="centerX" secondItem="ynq-Tk-YxC" secondAttribute="centerX" id="MKM-13-6o1"/>
-                <constraint firstAttribute="centerY" secondItem="H9t-rO-USx" secondAttribute="centerY" id="S07-xQ-XI2"/>
+                <constraint firstItem="UJi-bw-lPF" firstAttribute="top" secondItem="lz1-Rx-HJn" secondAttribute="bottom" constant="10" id="UVH-j3-T3X"/>
+                <constraint firstAttribute="centerX" secondItem="UJi-bw-lPF" secondAttribute="centerX" id="aVD-kg-3ZJ"/>
+                <constraint firstItem="lz1-Rx-HJn" firstAttribute="top" secondItem="hNY-uc-ZPQ" secondAttribute="bottom" constant="10" id="d2T-Kl-qbO"/>
                 <constraint firstAttribute="centerX" secondItem="hNY-uc-ZPQ" secondAttribute="centerX" id="fMC-C5-DIO"/>
+                <constraint firstAttribute="centerX" secondItem="lz1-Rx-HJn" secondAttribute="centerX" id="hlr-0e-cWO"/>
                 <constraint firstAttribute="centerX" secondItem="H9t-rO-USx" secondAttribute="centerX" id="m6n-A5-muV"/>
                 <constraint firstItem="H9t-rO-USx" firstAttribute="top" secondItem="ynq-Tk-YxC" secondAttribute="bottom" constant="40" id="oES-ec-Rlt"/>
                 <constraint firstItem="hNY-uc-ZPQ" firstAttribute="top" secondItem="H9t-rO-USx" secondAttribute="bottom" constant="20" id="xCD-P6-87Y"/>
