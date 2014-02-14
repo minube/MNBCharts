@@ -7,9 +7,11 @@
 //
 
 #import "MNBViewController.h"
+#import "MNBRoundedChart.h"
 
 @interface MNBViewController ()
-
+@property (strong, nonatomic) IBOutlet MNBRoundedChart *roundedChart;
+- (IBAction)startAnimation:(id)sender;
 @end
 
 @implementation MNBViewController
@@ -35,4 +37,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)startAnimation:(id)sender
+{
+    [self.roundedChart startPresentingCircleWithColor:[UIColor blueColor] animationWithDuration:2.0 completion:^(BOOL finished) {
+        NSLog(@"Animation did end");
+    }];
+}
 @end

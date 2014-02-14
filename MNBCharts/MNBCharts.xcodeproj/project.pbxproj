@@ -21,6 +21,7 @@
 		45C272F118AE030B0011BE89 /* MNBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C272EE18AE030B0011BE89 /* MNBAppDelegate.m */; };
 		45C272F818AE03F20011BE89 /* MNBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C272F618AE03F20011BE89 /* MNBViewController.m */; };
 		45C272F918AE03F20011BE89 /* MNBViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45C272F718AE03F20011BE89 /* MNBViewController.xib */; };
+		45C272FD18AE05680011BE89 /* MNBRoundedChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C272FC18AE05680011BE89 /* MNBRoundedChart.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		45C272F518AE03F20011BE89 /* MNBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNBViewController.h; sourceTree = "<group>"; };
 		45C272F618AE03F20011BE89 /* MNBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNBViewController.m; sourceTree = "<group>"; };
 		45C272F718AE03F20011BE89 /* MNBViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MNBViewController.xib; sourceTree = "<group>"; };
+		45C272FB18AE05680011BE89 /* MNBRoundedChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNBRoundedChart.h; sourceTree = "<group>"; };
+		45C272FC18AE05680011BE89 /* MNBRoundedChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNBRoundedChart.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,7 @@
 		45C272BA18AE028A0011BE89 /* MNBCharts */ = {
 			isa = PBXGroup;
 			children = (
+				45C272FA18AE054C0011BE89 /* MNBCharts */,
 				45C272EC18AE02C60011BE89 /* Demo */,
 				45C272CF18AE028A0011BE89 /* Images.xcassets */,
 				45C272BB18AE028A0011BE89 /* Supporting Files */,
@@ -158,6 +162,15 @@
 				45C272F718AE03F20011BE89 /* MNBViewController.xib */,
 			);
 			path = Demo;
+			sourceTree = "<group>";
+		};
+		45C272FA18AE054C0011BE89 /* MNBCharts */ = {
+			isa = PBXGroup;
+			children = (
+				45C272FB18AE05680011BE89 /* MNBRoundedChart.h */,
+				45C272FC18AE05680011BE89 /* MNBRoundedChart.m */,
+			);
+			path = MNBCharts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45C272FD18AE05680011BE89 /* MNBRoundedChart.m in Sources */,
 				45C272F818AE03F20011BE89 /* MNBViewController.m in Sources */,
 				45C272F118AE030B0011BE89 /* MNBAppDelegate.m in Sources */,
 				45C272C118AE028A0011BE89 /* main.m in Sources */,
