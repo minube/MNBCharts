@@ -1,0 +1,3 @@
+[submodule "UICountingLabel"]
+	path = UICountingLabel
+	url = https://github.com/dataxpress/UICountingLabel.git
