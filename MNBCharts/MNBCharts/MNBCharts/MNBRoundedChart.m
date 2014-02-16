@@ -105,6 +105,13 @@ static NSString * const MNBRoundedChartAnimationKey = @"drawCircleAnimation";
 }
 
 #pragma mark - CAAnimationDelegate
+- (void)animationDidStart:(CAAnimation *)animation
+{
+    if (animation == [self.circle animationForKey:MNBRoundedChartAnimationKey]) {
+        
+    }
+}
+
 - (void)animationDidStop:(CAAnimation *)animation finished:(BOOL)flag
 {
     if (animation == [self.circle animationForKey:MNBRoundedChartAnimationKey]) {

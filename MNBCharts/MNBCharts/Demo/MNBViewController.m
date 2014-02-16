@@ -9,12 +9,14 @@
 #import "MNBViewController.h"
 #import "MNBRoundedChart.h"
 #import "MNBBarChart.h"
+#import "UICountingLabel.h"
 
 @interface MNBViewController ()
 @property (strong, nonatomic) IBOutlet MNBRoundedChart *roundedChart;
 @property (strong, nonatomic) IBOutlet MNBBarChart *barChart;
 @property (strong, nonatomic) IBOutlet MNBBarChart *barChart2;
 @property (strong, nonatomic) IBOutlet MNBBarChart *barChart3;
+@property (weak, nonatomic) IBOutlet UICountingLabel *countingLabel;
 - (IBAction)startAnimation:(id)sender;
 @end
 
@@ -36,6 +38,9 @@
     self.barChart.backgroundColor = [UIColor colorWithRed:49.0/255.0 green:57.0/255.0 blue:70.0/255.0 alpha:1.0];
     self.barChart2.backgroundColor = [UIColor colorWithRed:49.0/255.0 green:57.0/255.0 blue:70.0/255.0 alpha:1.0];
     self.barChart3.backgroundColor = [UIColor colorWithRed:49.0/255.0 green:57.0/255.0 blue:70.0/255.0 alpha:1.0];
+    
+    self.countingLabel.format = @"%.1f";
+    self.countingLabel.method = UILabelCountingMethodEaseInOut;
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,6 +54,8 @@
     [self.roundedChart startPresentingCircleWithColor:[UIColor colorWithRed:49.0/255.0 green:57.0/255.0 blue:70.0/255.0 alpha:1.0] endValue:0.8 animationWithDuration:1.0 completion:^(BOOL finished) {
         NSLog(@"Animation did end");
     }];
+    [self.countingLabel countFrom:0 to:8.0 withDuration:1.0];
+    
     
     [self.barChart startPresentingWithColor:[UIColor colorWithRed:244.0/255.0 green:129.0/255.0 blue:0.0 alpha:1.0] endValue:0.8 animationWithDuration:1.0 completion:^(BOOL finished) {
         NSLog(@"Animation did end");
