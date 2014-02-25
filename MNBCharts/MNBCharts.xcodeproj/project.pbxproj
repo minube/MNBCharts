@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		453D762718B101EE0034F332 /* UICountingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 453D762618B101EE0034F332 /* UICountingLabel.m */; };
 		45C272B518AE028A0011BE89 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C272B418AE028A0011BE89 /* Foundation.framework */; };
 		45C272B718AE028A0011BE89 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C272B618AE028A0011BE89 /* CoreGraphics.framework */; };
 		45C272B918AE028A0011BE89 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C272B818AE028A0011BE89 /* UIKit.framework */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		453D762518B101EE0034F332 /* UICountingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICountingLabel.h; sourceTree = "<group>"; };
+		453D762618B101EE0034F332 /* UICountingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICountingLabel.m; sourceTree = "<group>"; };
 		45C272B118AE028A0011BE89 /* MNBCharts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MNBCharts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45C272B418AE028A0011BE89 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		45C272B618AE028A0011BE89 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -85,6 +88,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		453D762318B101BC0034F332 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				453D762418B101DD0034F332 /* UICountingLabel */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		453D762418B101DD0034F332 /* UICountingLabel */ = {
+			isa = PBXGroup;
+			children = (
+				453D762518B101EE0034F332 /* UICountingLabel.h */,
+				453D762618B101EE0034F332 /* UICountingLabel.m */,
+			);
+			name = UICountingLabel;
+			sourceTree = "<group>";
+		};
 		45C272A818AE028A0011BE89 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +138,7 @@
 		45C272BA18AE028A0011BE89 /* MNBCharts */ = {
 			isa = PBXGroup;
 			children = (
+				453D762318B101BC0034F332 /* Libraries */,
 				45C272FA18AE054C0011BE89 /* MNBCharts */,
 				45C272EC18AE02C60011BE89 /* Demo */,
 				45C272CF18AE028A0011BE89 /* Images.xcassets */,
@@ -281,6 +302,7 @@
 				45C272F118AE030B0011BE89 /* MNBAppDelegate.m in Sources */,
 				45C2730018AE38A90011BE89 /* MNBBarChart.m in Sources */,
 				45C272C118AE028A0011BE89 /* main.m in Sources */,
+				453D762718B101EE0034F332 /* UICountingLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +505,7 @@
 				45C272E818AE028A0011BE89 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		45C272E918AE028A0011BE89 /* Build configuration list for PBXNativeTarget "MNBChartsTests" */ = {
 			isa = XCConfigurationList;
@@ -491,6 +514,7 @@
 				45C272EB18AE028A0011BE89 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

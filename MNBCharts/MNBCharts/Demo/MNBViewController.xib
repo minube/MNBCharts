@@ -9,6 +9,7 @@
                 <outlet property="barChart" destination="hNY-uc-ZPQ" id="vqo-nU-OIB"/>
                 <outlet property="barChart2" destination="lz1-Rx-HJn" id="Vit-wV-0K7"/>
                 <outlet property="barChart3" destination="UJi-bw-lPF" id="ij0-S5-xN9"/>
+                <outlet property="countingLabel" destination="Z3a-mA-rep" id="NhE-RJ-gUC"/>
                 <outlet property="roundedChart" destination="H9t-rO-USx" id="y8w-RW-mEn"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
@@ -27,6 +28,13 @@
                         <constraint firstAttribute="height" constant="300" id="RGM-Qp-gtI"/>
                     </constraints>
                 </view>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3a-mA-rep" customClass="UICountingLabel">
+                    <rect key="frame" x="384" y="300" width="0.0" height="0.0"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ynq-Tk-YxC">
                     <rect key="frame" x="368" y="80" width="33" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -67,6 +75,7 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="H9t-rO-USx" firstAttribute="centerY" secondItem="Z3a-mA-rep" secondAttribute="centerY" id="83a-lY-BMM"/>
                 <constraint firstItem="ynq-Tk-YxC" firstAttribute="top" secondItem="2" secondAttribute="top" constant="80" id="Jxz-fm-bx5"/>
                 <constraint firstAttribute="centerX" secondItem="ynq-Tk-YxC" secondAttribute="centerX" id="MKM-13-6o1"/>
                 <constraint firstItem="UJi-bw-lPF" firstAttribute="top" secondItem="lz1-Rx-HJn" secondAttribute="bottom" constant="10" id="UVH-j3-T3X"/>
@@ -76,6 +85,7 @@
                 <constraint firstAttribute="centerX" secondItem="lz1-Rx-HJn" secondAttribute="centerX" id="hlr-0e-cWO"/>
                 <constraint firstAttribute="centerX" secondItem="H9t-rO-USx" secondAttribute="centerX" id="m6n-A5-muV"/>
                 <constraint firstItem="H9t-rO-USx" firstAttribute="top" secondItem="ynq-Tk-YxC" secondAttribute="bottom" constant="40" id="oES-ec-Rlt"/>
+                <constraint firstItem="H9t-rO-USx" firstAttribute="centerX" secondItem="Z3a-mA-rep" secondAttribute="centerX" id="uMq-qa-Eeq"/>
                 <constraint firstItem="hNY-uc-ZPQ" firstAttribute="top" secondItem="H9t-rO-USx" secondAttribute="bottom" constant="20" id="xCD-P6-87Y"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
