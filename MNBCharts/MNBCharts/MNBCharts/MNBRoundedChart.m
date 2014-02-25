@@ -60,6 +60,14 @@ static NSString * const MNBRoundedChartAnimationKey = @"drawCircleAnimation";
     self.filledCircle.fillColor = self.filledColor.CGColor;
     self.filledCircle.strokeColor = self.filledColor.CGColor;
     [self.layer addSublayer:self.filledCircle];
+    
+    // Circle
+    self.circle = [CAShapeLayer layer];
+    self.circle.path = [UIBezierPath bezierPathWithArcCenter:self.circlesCenter radius:self.circleRadius startAngle:0 endAngle:0 clockwise:YES].CGPath;
+    self.circle.fillColor = [UIColor clearColor].CGColor;
+    self.circle.strokeColor = [UIColor clearColor].CGColor;
+    self.circle.lineWidth = self.lineWidth;
+    [self.layer addSublayer:self.circle];
 }
 
 
@@ -73,24 +81,15 @@ static NSString * const MNBRoundedChartAnimationKey = @"drawCircleAnimation";
     NSAssert1(endValue >= 0 && endValue <= 1, @"End Value must be between 0 and 1. You set endValue = %f", endValue);
     self.completion = completion;
     
-    if (self.circle) {
-        [self.circle removeFromSuperlayer];
-    }
-    
-    // Circle
-    self.circle = [CAShapeLayer layer];
     self.circle.path = [UIBezierPath bezierPathWithArcCenter:self.circlesCenter radius:self.circleRadius startAngle:3 * M_PI_2 endAngle:endValue * 4 * M_PI clockwise:YES].CGPath;
     self.circle.fillColor = [UIColor clearColor].CGColor;
-    self.circle.strokeColor = [UIColor clearColor].CGColor;
-    self.circle.lineWidth = self.lineWidth;
-    [self.layer addSublayer:self.circle];
-    
     UIColor *circleColor = [UIColor whiteColor];
     if (color) {
         circleColor = color;
     }
-    
     self.circle.strokeColor = circleColor.CGColor;
+    self.circle.lineWidth = self.lineWidth;
+    [self.layer addSublayer:self.circle];
 
     CABasicAnimation *drawAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
     drawAnimation.duration            = duration;
