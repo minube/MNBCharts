@@ -81,7 +81,7 @@ static NSString * const MNBRoundedChartAnimationKey = @"drawCircleAnimation";
     NSAssert1(endValue >= 0 && endValue <= 1, @"End Value must be between 0 and 1. You set endValue = %f", endValue);
     self.completion = completion;
     
-    self.circle.path = [UIBezierPath bezierPathWithArcCenter:self.circlesCenter radius:self.circleRadius startAngle:3 * M_PI_2 endAngle:endValue * 4 * M_PI clockwise:YES].CGPath;
+    self.circle.path = [UIBezierPath bezierPathWithArcCenter:self.circlesCenter radius:self.circleRadius startAngle:(3 / 2.0) * M_PI endAngle:(endValue * 2 * M_PI) + ((3 / 2.0) * M_PI) clockwise:YES].CGPath;
     self.circle.fillColor = [UIColor clearColor].CGColor;
     UIColor *circleColor = [UIColor whiteColor];
     if (color) {
