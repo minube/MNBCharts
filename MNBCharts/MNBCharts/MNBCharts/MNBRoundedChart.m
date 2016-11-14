@@ -10,7 +10,7 @@
 
 static NSString * const MNBRoundedChartAnimationKey = @"drawCircleAnimation";
 
-@interface MNBRoundedChart ()
+@interface MNBRoundedChart ()<CAAnimationDelegate>
 @property (nonatomic, assign) CGPoint circlesCenter;
 @property (nonatomic, strong) CAShapeLayer *circle;
 @property (nonatomic, strong) CAShapeLayer *filledCircle;
@@ -21,13 +21,11 @@ static NSString * const MNBRoundedChartAnimationKey = @"drawCircleAnimation";
 
 @implementation MNBRoundedChart
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
+- (instancetype)initWithFrame:(CGRect)frame {
     return [self initWithFrame:frame lineWidth:[MNBRoundedChart defaultLineWidthForFrame:frame]];
 }
 
-- (instancetype)initWithFrame:(CGRect)frame lineWidth:(CGFloat)lineWidth
-{
+- (instancetype)initWithFrame:(CGRect)frame lineWidth:(CGFloat)lineWidth {
     self = [super initWithFrame:frame];
     if (self) {
         _lineWidth = lineWidth;
@@ -35,15 +33,12 @@ static NSString * const MNBRoundedChartAnimationKey = @"drawCircleAnimation";
     return self;
 }
 
-- (void)awakeFromNib
-{
+- (void)awakeFromNib {
     [super awakeFromNib];
     self.lineWidth = [MNBRoundedChart defaultLineWidthForFrame:self.frame];
 }
 
-- (void)drawRect:(CGRect)rect
-{
-    // Set up the shape of the circle
+- (void)drawRect:(CGRect)rect {
     CGFloat rectWidth = CGRectGetWidth(rect);
     CGFloat rectHeight = CGRectGetHeight(rect);
     
@@ -71,8 +66,7 @@ static NSString * const MNBRoundedChartAnimationKey = @"drawCircleAnimation";
 }
 
 
-- (void)startPresentingCircleWithColor:(UIColor *)color endValue:(CGFloat)endValue animationWithDuration:(CGFloat)duration
-{
+- (void)startPresentingCircleWithColor:(UIColor *)color endValue:(CGFloat)endValue animationWithDuration:(CGFloat)duration {
     [self startPresentingCircleWithColor:color endValue:endValue animationWithDuration:duration completion:nil];
 }
 

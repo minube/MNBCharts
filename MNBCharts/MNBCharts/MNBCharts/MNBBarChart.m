@@ -10,7 +10,7 @@
 
 static NSString * const MNBBarChartAnimationKey = @"moveBarAnimation";
 
-@interface MNBBarChart ()
+@interface MNBBarChart ()<CAAnimationDelegate>
 @property (nonatomic, strong) CAShapeLayer *backgroundLayer;
 @property (nonatomic, strong) CAShapeLayer *barChartLayer;
 @property (nonatomic, copy) MNBBarChartCompletionCallback completion;
